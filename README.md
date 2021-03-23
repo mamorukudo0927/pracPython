@@ -186,3 +186,31 @@ def pracTuple() :
     # 不変なので、関数の戻り値としてはListより優れる場合もある。
     return tuple
 ```
+
+### 関数とlambdaの利用
+Pythonではlambdaキーワードで無名関数を定義できる。
+無名関数はループができず、１行で記載するという制約があるが
+map()やfilter()といった処理の引数に渡すことでコードを完結にできる。
+
+```Python
+lambdaExample = lambda x: x* 2
+
+# 関数定義するなら以下と同様。
+def lambdaExample2(x):
+    return x* 2
+
+print(lambdaExample2(2) == lambdaExample(2))
+
+lis = [1, 2, 3, 4, 5]
+list2 = list(map(lambda x: x* 2 , lis))
+print(list2)
+def mapAndLambda(x) : 
+    return x* 2
+
+def checkMapAndLambda(lis) :
+    lis = [1, 2, 3, 4, 5]
+    list2 = list(map(mapAndLambda , lis))
+    return list2
+
+print(checkMapAndLambda(lis))
+```
